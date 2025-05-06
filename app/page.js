@@ -40,7 +40,7 @@ export default function Home() {
             <a href="#how-it-works">이용방법</a>
             <a href="#pricing">가격</a>
             <a href="#testimonials">후기</a>
-            <a href="#pricing" className="btn btn-secondary">무료 테스트</a>
+            <a href="/test" className="btn btn-secondary">무료 테스트</a>
             <a href="#pricing" className="btn btn-primary">시작하기</a>
           </nav>
         </div>
@@ -59,8 +59,12 @@ export default function Home() {
             BeforeYes는 결혼 전 고민하는 당신을 위해, 혼자서 감정을 정리할 수 있는 공간입니다.
           </p>
           <div className="flex justify-center gap-4">
-            <a href="#pricing" className="px-6 py-3 bg-[#f4a3a3] text-white rounded-full shadow-md hover:bg-[#f39292] transition">감정 리포트 받기</a>
-            <a href="#pricing" className="px-6 py-3 border-2 border-[#F7BFBF] text-[#f39292] rounded-full hover:bg-[#fff3f2] transition">무료 테스트 시작</a>
+            <a href="#pricing" className="px-6 py-3 bg-[#f4a3a3] text-white rounded-full shadow-md hover:bg-[#f39292] transition">
+              감정 리포트 받기
+            </a>
+            <a href="/test" className="px-6 py-3 border-2 border-[#F7BFBF] text-[#f39292] rounded-full hover:bg-[#fff3f2] transition">
+              무료 테스트 시작
+            </a>
           </div>
         </div>
       </section>
