@@ -66,10 +66,7 @@ const pricingPlans = [
     buttonText: '체험 시작하기',
     buttonStyle: 'bg-white text-[#5c4f4f] border-2 border-gray-300 hover:bg-gray-100',
     level: 1,
-    features: [
-      "간단한 감정/불안 유형 테스트",
-      "1문단 요약 피드백"
-    ]
+    features: ["간단한 감정/불안 유형 테스트","1문단 요약 피드백"]
   },
   {
     stage: '2단계',
@@ -79,11 +76,7 @@ const pricingPlans = [
     buttonText: '구매하기',
     buttonStyle: 'bg-white text-[#f39292] border-2 border-[#f39292] hover:bg-[#fff3f2]',
     level: 2,
-    features: [
-      "감정 진단 결과 요약",
-      "시뮬레이션 맛보기",
-      "리포트 프레임만 제공"
-    ]
+    features: ["감정 진단 결과 요약","시뮬레이션 맛보기","리포트 프레임만 제공"]
   },
   {
     stage: '3단계',
@@ -93,12 +86,7 @@ const pricingPlans = [
     buttonText: '구매하기',
     buttonStyle: 'bg-black text-white hover:bg-gray-800',
     level: 3,
-    features: [
-      "감정 요약 제공",
-      "갈등 원인 심층 분석",
-      "AI 시뮬 대화 요약",
-      "맞춤형 대응 가이드"
-    ]
+    features: ["감정 요약 제공","갈등 원인 심층 분석","AI 시뮬 대화 요약","맞춤형 대응 가이드"]
   },
   {
     stage: '4단계',
@@ -108,13 +96,8 @@ const pricingPlans = [
     buttonText: '구매하기',
     buttonStyle: 'bg-white text-[#f39292] border-2 border-[#f39292] hover:bg-[#fff3f2]',
     level: 4,
-    features: [
-      "모든 기능 통합 제공",
-      "감정 정리 챗봇 이용",
-      "시뮬레이션 다회차 제공",
-      "리포트 PDF 포함"
-    ]
-  },
+    features: ["모든 기능 통합 제공","감정 정리 챗봇 이용","시뮬레이션 다회차 제공","리포트 PDF 포함"]
+  }
 ];
 
 export default function Home() {
@@ -124,20 +107,10 @@ export default function Home() {
   const [simulations, setSimulations] = useState(4750);
 
   useEffect(() => {
-    const userInterval = setInterval(() => {
-      setUsers(prev => (prev < 30000 ? prev + 2 : prev));
-    }, 1000);
-    const reportInterval = setInterval(() => {
-      setReports(prev => (prev < 20000 ? prev + 1 : prev));
-    }, 1500);
-    const simInterval = setInterval(() => {
-      setSimulations(prev => (prev < 5000 ? prev + 1 : prev));
-    }, 2000);
-    return () => {
-      clearInterval(userInterval);
-      clearInterval(reportInterval);
-      clearInterval(simInterval);
-    };
+    const userInterval = setInterval(() => { setUsers(prev => (prev < 30000 ? prev + 2 : prev)); }, 1000);
+    const reportInterval = setInterval(() => { setReports(prev => (prev < 20000 ? prev + 1 : prev)); }, 1500);
+    const simInterval = setInterval(() => { setSimulations(prev => (prev < 5000 ? prev + 1 : prev)); }, 2000);
+    return () => { clearInterval(userInterval); clearInterval(reportInterval); clearInterval(simInterval); };
   }, []);
 
   const closeMenuAndScroll = (id) => {
@@ -150,7 +123,7 @@ export default function Home() {
     <div className="relative bg-[#FFF9F6] text-[#5c4f4f] font-['Pretendard','Noto Sans KR',sans-serif]">
       <header className="fixed top-0 w-full bg-white shadow-md z-50">
         <div className="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.href = '/' }>
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.href = '/'}>
             <img src="/BeforeYes.png" alt="BeforeYes Logo" className="h-10" />
           </div>
           <button className="md:hidden z-50" onClick={() => setMenuOpen(!menuOpen)}>
@@ -181,15 +154,13 @@ export default function Home() {
 
       <section className="pt-32 pb-20 text-center bg-white">
         <div className="max-w-screen-md mx-auto px-4">
-        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
-         "이 사람이 맞을까?" <br />
-          <span className="text-[#d88]">
-          <span className="hidden md:inline">결혼 그 후에 후회가 되면 어떻게 하죠?</span>
-          <span className="block md:hidden">
-           결혼 그 후에 후회가 되면<br />어떻게 하죠?
-          </span>
-          </span>
-        </h1>
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
+            "이 사람이 맞을까?" <br />
+            <span className="text-[#d88]">
+              <span className="hidden md:inline">결혼 그 후에 후회가 되면 어떻게 하죠?</span>
+              <span className="block md:hidden">결혼 그 후에 후회가 되면<br />어떻게 하죠?</span>
+            </span>
+          </h1>
           <p className="text-lg text-[#84757a] mb-8">
             BeforeYes는 결혼 전 고민하는 당신을 위해, 혼자서 감정을 정리할 수 있는 공간입니다.
           </p>
@@ -198,7 +169,7 @@ export default function Home() {
             <a href="/test" className="px-6 py-3 border-2 border-[#F7BFBF] text-[#f39292] rounded-full hover:bg-[#fff3f2] transition">무료 테스트 시작</a>
           </div>
         </div>
-      </section> 
+      </section>
 
       <section className="bg-[#F7BFBF] text-[#5c4f4f] py-16 text-center">
         <p className="text-sm text-[#84757a] mb-2">혼자 정리하기 어려운 감정, 함께한 이들이 이렇게 많습니다.</p>
@@ -235,12 +206,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {pricingPlans.map((plan, index) => (
-              <div
-                key={index}
-                className={`bg-white rounded-xl shadow-md p-6 relative border ${
-                  plan.level === 3 ? 'border-2 border-[#f4a3a3]' : 'border-gray-200'
-                }`}
-              >
+              <div key={index} className={`bg-white rounded-xl shadow-md p-6 relative border ${plan.level === 3 ? 'border-2 border-[#f4a3a3]' : 'border-gray-200'}`}>
                 <div className="absolute -top-4 -left-4 bg-white rounded-full shadow-md w-10 h-10 flex items-center justify-center border-2 border-[#f4a3a3]">
                   <span className="text-[#f39292] font-bold">{plan.level}</span>
                 </div>
@@ -252,18 +218,12 @@ export default function Home() {
                   <div className="text-lg font-bold text-[#f39292]">{plan.price}</div>
                 </div>
 
-                <button
-                  className={`w-full py-3 px-4 rounded-full font-medium transition-colors duration-200 mb-6 ${plan.buttonStyle}`}
-                >
-                  {plan.buttonText}
-                </button>
+                <button className={`w-full py-3 px-4 rounded-full font-medium transition-colors duration-200 mb-6 ${plan.buttonStyle}`}>{plan.buttonText}</button>
 
                 <ul className="space-y-3">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-2">
-                      <div className="mt-0.5 text-[#f4a3a3] flex-shrink-0">
-                        <CheckCircle size={18} />
-                      </div>
+                      <div className="mt-0.5 text-[#f4a3a3] flex-shrink-0"><CheckCircle size={18} /></div>
                       <span className="text-sm text-[#5c4f4f]">{feature}</span>
                     </li>
                   ))}
