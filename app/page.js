@@ -22,13 +22,6 @@ function FeatureCard({ icon, title, desc }) {
   );
 }
 
-const testimonials = [
-  { title: '감정이 정리되었어요', content: 'BeforeYes 덕분에 제 감정을 혼자서도 명확하게 바라볼 수 있었어요.', name: '30대 예비신부, 하은님' },
-  { title: '파혼 직전의 마음을 다잡았어요', content: 'BeforeYes의 시뮬레이션을 통해 감정적 이유와 실제 이유를 구분할 수 있었어요.', name: '20대 후반, 경민님' },
-  { title: '상대에게 감정을 잘 말하게 되었어요', content: '챗봇 덕분에 상대에게 어떻게 감정을 표현해야 할지 배웠어요.', name: '신혼 3개월차, 윤정님' },
-  { title: '혼자서도 할 수 있어서 좋았어요', content: '상담은 부담스럽고 BeforeYes는 조용히 나 자신을 돌아볼 수 있었어요.', name: '결혼 1년차, 성훈님' },
-];
-
 function TestimonialCard({ title, content, name }) {
   return (
     <div className="min-w-[260px] max-w-sm bg-white rounded-xl shadow-md p-6 mx-2">
@@ -38,6 +31,13 @@ function TestimonialCard({ title, content, name }) {
     </div>
   );
 }
+
+const testimonials = [
+  { title: '감정이 정리되었어요', content: 'BeforeYes 덕분에 제 감정을 혼자서도 명확하게 바라볼 수 있었어요.', name: '30대 예비신부, 하은님' },
+  { title: '파혼 직전의 마음을 다잡았어요', content: 'BeforeYes의 시뮬레이션을 통해 감정적 이유와 실제 이유를 구분할 수 있었어요.', name: '20대 후반, 경민님' },
+  { title: '상대에게 감정을 잘 말하게 되었어요', content: '챗봇 덕분에 상대에게 어떻게 감정을 표현해야 할지 배웠어요.', name: '신혼 3개월차, 윤정님' },
+  { title: '혼자서도 할 수 있어서 좋았어요', content: '상담은 부담스럽고 BeforeYes는 조용히 나 자신을 돌아볼 수 있었어요.', name: '결혼 1년차, 성훈님' },
+];
 
 function TestimonialsSection() {
   return (
@@ -65,17 +65,25 @@ const pricingPlans = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [users, setUsers] = useState(12000);
-  const [reports, setReports] = useState(5800);
-  const [simulations, setSimulations] = useState(3200);
+  const [users, setUsers] = useState(15000);
+  const [reports, setReports] = useState(19500);
+  const [simulations, setSimulations] = useState(4750);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setUsers(prev => (prev < 20000 ? prev + Math.floor(Math.random() * 10) : prev));
-      setReports(prev => (prev < 10000 ? prev + Math.floor(Math.random() * 5) : prev));
-      setSimulations(prev => (prev < 5000 ? prev + Math.floor(Math.random() * 4) : prev));
-    }, 50);
-    return () => clearInterval(interval);
+    const userInterval = setInterval(() => {
+      setUsers(prev => (prev < 20000 ? prev + 2 : prev));
+    }, 1000);
+    const reportInterval = setInterval(() => {
+      setReports(prev => (prev < 20000 ? prev + 1 : prev));
+    }, 1500);
+    const simInterval = setInterval(() => {
+      setSimulations(prev => (prev < 5000 ? prev + 1 : prev));
+    }, 2000);
+    return () => {
+      clearInterval(userInterval);
+      clearInterval(reportInterval);
+      clearInterval(simInterval);
+    };
   }, []);
 
   const closeMenuAndScroll = (id) => {
@@ -111,7 +119,7 @@ export default function Home() {
             <a onClick={() => closeMenuAndScroll('#how-it-works')} className="cursor-pointer">이용방법</a>
             <a onClick={() => closeMenuAndScroll('#pricing')} className="cursor-pointer">가격</a>
             <a onClick={() => closeMenuAndScroll('#testimonials')} className="cursor-pointer">후기</a>
-            <a onClick={() => { window.location.href = '/test'; setMenuOpen(false); }} className="btn btn-secondary">무료 테스트</a>
+            <a href="/test" className="btn btn-secondary">무료 테스트</a>
             <a onClick={() => closeMenuAndScroll('#pricing')} className="btn btn-primary">시작하기</a>
           </div>
         )}
@@ -177,6 +185,32 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <footer className="bg-white border-t border-gray-200 py-12 mt-20">
+        <div className="max-w-screen-xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-6 mb-8">
+            <div>
+              <h4 className="text-lg font-semibold text-[#f39292] mb-2">고객센터</h4>
+              <button className="bg-[#f39292] text-white px-4 py-2 rounded-full mb-4">1:1 채팅상담 바로가기</button>
+              <p className="text-sm text-[#5c4f4f]">운영시간 : 평일 10:00 ~ 18:00</p>
+            </div>
+            <div>
+              <h5 className="text-md font-semibold text-[#5c4f4f] mb-2">회사 정보</h5>
+              <p className="text-sm text-[#5c4f4f] leading-6">
+                주식회사 비포예스 | 대표: 변교리<br />
+                성남시 성남대로 1342 (가천대) AI공학관 6층 코코네스쿨<br />
+                이메일: hearting2025@gmail.com<br />
+                고객센터: 010-2652-2150
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <a href="https://www.instagram.com/before_yes_official/" target="_blank" rel="noopener noreferrer">
+              <img src="/instagram-icon.svg" alt="Instagram" className="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
