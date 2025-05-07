@@ -181,10 +181,15 @@ export default function Home() {
 
       <section className="pt-32 pb-20 text-center bg-white">
         <div className="max-w-screen-md mx-auto px-4">
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
-            "이 사람이 맞을까?" <br />
-            <span className="text-[#d88]">결혼 그 후에 후회가 되면 어떻게 하죠?</span>
-          </h1>
+        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
+         "이 사람이 맞을까?" <br />
+          <span className="text-[#d88]">
+          <span className="hidden md:inline">결혼 그 후에 후회가 되면 어떻게 하죠?</span>
+          <span className="block md:hidden">
+           결혼 그 후에 후회가 되면<br />어떻게 하죠?
+          </span>
+          </span>
+        </h1>
           <p className="text-lg text-[#84757a] mb-8">
             BeforeYes는 결혼 전 고민하는 당신을 위해, 혼자서 감정을 정리할 수 있는 공간입니다.
           </p>
@@ -193,7 +198,7 @@ export default function Home() {
             <a href="/test" className="px-6 py-3 border-2 border-[#F7BFBF] text-[#f39292] rounded-full hover:bg-[#fff3f2] transition">무료 테스트 시작</a>
           </div>
         </div>
-      </section>
+      </section> 
 
       <section className="bg-[#F7BFBF] text-[#5c4f4f] py-16 text-center">
         <p className="text-sm text-[#84757a] mb-2">혼자 정리하기 어려운 감정, 함께한 이들이 이렇게 많습니다.</p>
